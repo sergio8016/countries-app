@@ -3,12 +3,14 @@ import {SearchBoxComponent} from "../../components/search-box/search-box.compone
 import {CountriesService} from "../../services/countries.service";
 import {take} from "rxjs";
 import {CountryInterface} from "../../interfaces/country.interface";
+import {CountryTableComponent} from "../../components/country-table/country-table.component";
 
 @Component({
   selector: 'app-by-country-page',
   standalone: true,
   imports: [
-    SearchBoxComponent
+    SearchBoxComponent,
+    CountryTableComponent
   ],
   templateUrl: './by-country-page.component.html',
   styleUrl: './by-country-page.component.scss'
