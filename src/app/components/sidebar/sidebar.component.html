@@ -1,0 +1,15 @@
+<h2>
+  Countries
+</h2>
+<hr>
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    [routerLink]="link.url"
+    *ngFor="let link of links"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+  >
+    {{link.label}}
+  </li>
+</ul>
