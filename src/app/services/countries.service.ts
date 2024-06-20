@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CountyInterface} from "../interfaces/country.interface";
+import {CountryInterface} from "../interfaces/country.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +12,16 @@ export class CountriesService {
   //https://restcountries.com/v3.1/capital/{capital}
 
 
-  searchRegion(term: string): Observable<CountyInterface[]> {
-    return this.httpClient.get<CountyInterface[]>(`${this.url}/region/${term}`);
+  searchRegion(term: string): Observable<CountryInterface[]> {
+    return this.httpClient.get<CountryInterface[]>(`${this.url}/region/${term}`);
   }
 
-  searchCountry(term: string): Observable<CountyInterface[]> {
-    return this.httpClient.get<CountyInterface[]>(`${this.url}/name/${term}`);
+  searchCountry(term: string): Observable<CountryInterface[]> {
+    return this.httpClient.get<CountryInterface[]>(`${this.url}/name/${term}`);
   }
 
-  searchCapital(term: string): Observable<CountyInterface[]> {
-    return this.httpClient.get<CountyInterface[]>(`${this.url}/capital/${term}`);
+  searchCapital(term: string): Observable<CountryInterface[]> {
+    return this.httpClient.get<CountryInterface[]>(`${this.url}/capital/${term}`);
   }
 
 }

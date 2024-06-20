@@ -1,1 +1,8 @@
-<input type="text" [placeholder]="placeholder" #inputSearch (keyup.enter)="onInputEnter(inputSearch.value)">
+<div class="input-group">
+  <input
+    class="form-control"
+    type="text" [placeholder]="placeholder"
+    (keyup.enter)="onInputEnter(inputSearch.value)"
+    #inputSearch
+  >
+</div>
