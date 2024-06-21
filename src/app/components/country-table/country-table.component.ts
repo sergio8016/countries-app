@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CountryInterface} from "../../interfaces/country.interface";
-import {DecimalPipe} from "@angular/common";
+import {DecimalPipe, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
@@ -8,7 +8,8 @@ import {RouterLink} from "@angular/router";
   standalone: true,
   imports: [
     DecimalPipe,
-    RouterLink
+    RouterLink,
+    NgIf
   ],
   templateUrl: './country-table.component.html',
   styleUrl: './country-table.component.scss'
@@ -16,4 +17,5 @@ import {RouterLink} from "@angular/router";
 export class CountryTableComponent {
   @Input() data: CountryInterface[] = [];
   @Input() type!: string;
+  @Input() isLoading: boolean = false;
 }

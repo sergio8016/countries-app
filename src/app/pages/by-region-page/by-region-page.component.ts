@@ -20,12 +20,17 @@ export class ByRegionPageComponent {
   public placeholder: string = 'Search by region'
   public regions: CountryInterface[] = [];
   public type: string = 'region';
+  public isLoading: boolean = false;
 
   onRegionSearch(term: string) {
+    this.isLoading = true;
     this.countriesService.search(term, this.type)
       .pipe(
         take(1)
       )
-      .subscribe((response: CountryInterface[]) => this.regions = response);
+      .subscribe((response: CountryInterface[]) => {
+        this.regions = response;
+        this.isLoading = false;
+      });
   }
 }

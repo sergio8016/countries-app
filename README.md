@@ -44,40 +44,53 @@ Another new feature is the `@if` statement, which enhances template syntax for "
 
 ```html
 @if (data.length > 0) {
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Flag</th>
-      <th scope="col">Name</th>
-      <th scope="col">Capital</th>
-      <th scope="col">Population</th>
-      <th scope="col">Link</th>
-    </tr>
-    </thead>
-    <tbody>
-      @for (country of data; track country;) {
-        <tr>
-          <td>{{$index + 1}}</td>
-          <td>
-            <img  [src]="country.flags.svg" [alt]="country.name.common">
-          </td>
-          <td>{{country.name.common}}</td>
-          <td>{{country.capital}}</td>
-          <td>{{country.population | number}}</td>
-          <td>
-            <a href="">See more</a>
-          </td>
-        </tr>
-      }
-    </tbody>
-  </table>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Flag</th>
+    <th scope="col">Name</th>
+    <th scope="col">Capital</th>
+    <th scope="col">Population</th>
+    <th scope="col">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  @for (country of data; track country; ) {
+  <tr class="animate__animated animate__fadeIn">
+    <td>{{ $index + 1 }}</td>
+    <td>
+      <img [src]="country.flags.svg" [alt]="country.name.common">
+    </td>
+    <td>{{ country.name.common }}</td>
+    <td>{{ country.capital }}</td>
+    <td>{{ country.population | number }}</td>
+    <td>
+      <a [routerLink]="['/byCountry', country.cca3]">See more</a>
+    </td>
+  </tr>
+  }
+  </tbody>
+</table>
 } @else {
-  <div class="alert alert-warning text-center">
-    No countries to show
-  </div>
+<div class="alert alert-warning text-center">
+  No results to show
+</div>
 }
 ```
+## Some screenshots
+
+`http://localhost:4200/byCountry` with "col" search
+
+![img.png](img.png)
+
+`http://localhost:4200/byCountry/COL`
+
+![img_1.png](img_1.png)
+
+## Try it out yourself!
+
+
 
 ## Getting Started
 

@@ -19,13 +19,18 @@ export class ByCountryPageComponent {
   private countriesService: CountriesService = inject(CountriesService);
   public placeholder: string = 'Search by country'
   public countries: CountryInterface[] = [];
-  public type: string = 'name'
+  public type: string = 'name';
+  public isLoading: boolean = false;
 
   onCountrySearch(term: string) {
+    this.isLoading = true;
     this.countriesService.search(term, this.type)
       .pipe(
         take(1)
       )
-      .subscribe((response: CountryInterface[]) => this.countries = response);
+      .subscribe((response: CountryInterface[]) => {
+        this.countries = response;
+        this.isLoading = false;
+      });
   }
 }
