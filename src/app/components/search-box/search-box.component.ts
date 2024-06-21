@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {debounceTime, Subject} from "rxjs";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-search-box',
@@ -15,7 +16,8 @@ export class SearchBoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.bouncer.pipe(
-      debounceTime(500)
+      debounceTime(500),
+      takeUntilDestroyed()
     ).subscribe((term:string) => {
       this.search.emit(term)
     })

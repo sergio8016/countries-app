@@ -2,14 +2,23 @@
 <hr>
 
 <div class="row">
-  <div class="col">
-    <app-search-box [placeholder]="placeholder" (search)="onRegionSearch($event)"></app-search-box>
+  <div class="col text-center">
+    @for (region of regions; track region) {
+      <button
+        type="button"
+        class="btn mx-2"
+        [ngClass]="{'btn-outline-primary': selectedRegion === region}"
+        (click)="onRegionSearch(region)"
+      >
+        {{region}}
+      </button>
+    }
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     <hr>
-    <app-country-table [data]="regions" [type]="type" [isLoading]="isLoading"></app-country-table>
+    <app-country-table [data]="countries" [type]="type" [isLoading]="isLoading"></app-country-table>
   </div>
 </div>
