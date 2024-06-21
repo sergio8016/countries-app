@@ -1,4 +1,4 @@
-import {Component, Input, input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {CountryInterface} from "../../interfaces/country.interface";
 import {DecimalPipe} from "@angular/common";
 
@@ -13,4 +13,5 @@ import {DecimalPipe} from "@angular/common";
 })
 export class CountryTableComponent {
   @Input() data: CountryInterface[] = [];
+  @Input() type!: string;
 }

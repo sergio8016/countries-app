@@ -38,6 +38,47 @@ Another new feature is the `@for` loop, which enhances template syntax for itera
 }
 ```
 
+### `@if` statement
+
+Another new feature is the `@if` statement, which enhances template syntax for "showing/hiding" html content. Here’s how it can be used:
+
+```html
+@if (data.length > 0) {
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Flag</th>
+      <th scope="col">Name</th>
+      <th scope="col">Capital</th>
+      <th scope="col">Population</th>
+      <th scope="col">Link</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (country of data; track country;) {
+        <tr>
+          <td>{{$index + 1}}</td>
+          <td>
+            <img  [src]="country.flags.svg" [alt]="country.name.common">
+          </td>
+          <td>{{country.name.common}}</td>
+          <td>{{country.capital}}</td>
+          <td>{{country.population | number}}</td>
+          <td>
+            <a href="">See more</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <div class="alert alert-warning text-center">
+    No countries to show
+  </div>
+}
+```
+
 ## Getting Started
 
 1. **Clone the repository:**

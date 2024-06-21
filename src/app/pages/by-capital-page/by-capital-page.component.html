@@ -3,13 +3,13 @@
 
 <div class="row">
   <div class="col">
-    <app-search-box [placeholder]="placeholder" (search)="onSearchBYCapital($event)"></app-search-box>
+    <app-search-box [placeholder]="placeholder" (search)="onSearchByCapital($event)"></app-search-box>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     <hr>
-    Table of results
+    <app-country-table [data]="capitals" [type]="type"></app-country-table>
   </div>
 </div>
