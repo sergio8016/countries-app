@@ -1,5 +1,3 @@
-Certainly! Here is an improved version of your `Readme.md`:
-
 # Countries Application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3. It uses the free [Countries REST API](https://restcountries.com/) to explore new features of Angular versions 17 and 18.
