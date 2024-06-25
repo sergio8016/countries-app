@@ -1,0 +1,7 @@
+{
+  "routes": [
+    "/byCapital",
+    "/byCountry",
+    "/byRegion"
+  ]
+}
