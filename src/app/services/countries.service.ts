@@ -16,6 +16,18 @@ export class CountriesService {
     byRegion: {region: '', countries: []},
   }
 
+  constructor() {
+    this.loadFromLocalStorage();
+  }
+  private saveToLocalStorage() {
+    localStorage.setItem('cacheStorage', JSON.stringify(this.cacheStorage));
+  }
+
+  private loadFromLocalStorage() {
+    if (!localStorage.getItem('cacheStorage')) return;
+    this.cacheStorage = JSON.parse(localStorage.getItem('cacheStorage')!);
+  }
+
   search(term: string, type: string): Observable<CountryInterface[]> {
     return this.httpClient.get<CountryInterface[]>(`${this.url}/${type}/${term}`)
       .pipe(
@@ -32,6 +44,7 @@ export class CountriesService {
               break;
           }
         }),
+        tap(() => this.saveToLocalStorage()),
         catchError(() => of([])),
       );
   }
