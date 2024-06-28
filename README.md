@@ -87,6 +87,9 @@ Another new feature is the `@if` statement, which enhances template syntax for "
 
 ![image](https://github.com/sergio8016/countries-app/assets/32036415/6a229a4d-50cd-4692-a513-caebb149e0dc)
 
+## try it out!
+
+`https://sergio8016.github.io/countries-app/byCapital`
 
 ## Getting Started
 
