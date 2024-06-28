@@ -89,7 +89,7 @@ Another new feature is the `@if` statement, which enhances template syntax for "
 
 ## try it out!
 
-Use this app [Here](https://sergio8016.github.io/countries-app/byCapital)
+Use this app [Link](https://sergio8016.github.io/countries-app/)
 
 ## Getting Started
 
